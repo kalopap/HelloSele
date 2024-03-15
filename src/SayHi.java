@@ -1,20 +1,19 @@
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 public class SayHi {
 
-	public static void main(String[] args) {
 
-		invokeChrome("https://www.google.com/");
-		invokeFirefox("https://github.com/mozilla/geckodriver/releases");
-		invokeEdge("https://www.microsoft.com/");
-		
-	}
-	
-	static void invokeFirefox(String url) {
+	@Parameters({"URL"})
+	@Test
+	public void invokeFirefox(String url) {
 		
 		//FirefoxDriver driver = new FirefoxDriver();
 		//for firefox driver, download geckodriver.the property is 'webdriver.gecko.driver'
@@ -29,7 +28,9 @@ public class SayHi {
 		driver.close();
 	}
 	
-	static void invokeChrome(String url) {
+	@Parameters({"URL"})
+	@Test
+	public void invokeChrome(String url) {
 
 		//ChromeDriver driver = new ChromeDriver();
 
@@ -45,7 +46,9 @@ public class SayHi {
 
 	}
 	
-	static void invokeEdge(String url) {
+	@Parameters({"URL"})
+	@Test
+	public void invokeEdge(String url) {
 		//SafariDriver driver = new SafariDriver();
 		System.setProperty("webdriver.edge.driver", "P:\\Selenium\\Drivers\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
